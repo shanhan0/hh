@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <title>汕头微电网大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/base.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+  
+        .animate{
+            overflow: hidden;
+        }
+        .actionImg{
+            display: inline-block;
+            position:absolute;
+            width: 3712px;
+            height: 1536px;
+            right:1px;
+            top:20px;
+            background: url('./images/total_scriptes.png') -10px -10px no-repeat;
+            animation: testanimations 3s steps(1,end)  0s infinite;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+        @keyframes testanimations {
+            from {
+                opacity: 0.6;
+                background-position: -10px -1566px;
+            }
+
+            5% {
+                opacity: 0.64;
+                background-position: -10px -3122px;
+            }
+
+            10% {
+                opacity: 0.68;
+                background-position: -10px -4678px;
+            }
+
+            15% {
+                opacity: 0.7;
+                background-position: -10px -6234px;
+
+            }
+
+            20% {
+                opacity: 0.74;
+                background-position: -10px -7790px;
+            }
+
+            25% {
+                opacity: 0.77;
+                background-position: -10px -9346px;
+            }
+
+            30% {
+                opacity: 0.8;
+                background-position: -10px -10902px;
+            }
+
+            35% {
+                opacity: 0.84;
+                background-position: -10px -12458px;
+            }
+
+            40% {
+                opacity: 0.9;
+                background-position: -10px -14014px;
+            }
+
+            45% {
+                opacity: 0.8;
+                background-position: -10px -15570px;
+            }
+
+            50% {
+                opacity: 0.7;
+                background-position: -10px -17126px;
+            }
+
+            55% {
+                opacity: 0.65;
+                background-position: -10px -18682px;
+            }
+
+            60% {
+                opacity: 0.75;
+                background-position: -10px -20238px;
+            }
+
+            65% {
+                opacity: 0.9;
+                background-position: -10px -21794px;
+            }
+
+            70% {
+                opacity: 0.93;
+                background-position: -10px -23350px;
+            }
+
+            70% {
+                opacity: 0.96;
+                background-position: -10px -24906px;
+            }
+
+            75% {
+                opacity: 0.8;
+                background-position: -10px -26462px;
+            }
+
+            83% {
+                opacity: 0.85;
+                background-position: -10px -28018px;
+            }
+
+            89% {
+                opacity: 0.89;
+                background-position: -10px -29574px;
+            }
+
+            95% {
+                opacity: 0.9;
+                background-position: -10px -31130px;
+            }
+
+
+            to {
+                opacity: 0.85;
+                background-position:  -10px -10px;
+
+            }
+        }
+        .park ul li{
+            opacity: 0;
+        }
+        .indexMainCD .rel ul li,
+        .indexMainCN .rel ul li,
+        .indexMainFJ .rel ul li,
+        .indexMainGF .rel ul li,
+        .indexMainCD,
+        .indexMainCN,
+        .indexMainFJ,
+        .indexMainGF
+        {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="leftMask"></div>
+<div class="left">
+    <div class="sloganDIv">
+        <div class="slogan">
+            <p>智慧园区能源系统</p>
+        </div>
+    </div>
+    <div class="park">
+        <h1>汕头智慧综合能源服务园区</h1>
+        <ul>
+            <li>
+                <b></b>
+                <div>
+                    <p>风光储综合能源<span>一体化</span>管理，</p>
+                    <p>提供远程监控实时诊断预警；</p>
+                </div>
+
+            </li>
+            <li>
+                <b></b>
+                <div>
+                    <p>基于预测数据的<span>数字化</span>建模，</p>
+                    <p>提供能量算法优化调度；</p>
+                </div>
+
+            </li>
+            <li>
+                <b></b>
+                <div>
+                    <p>实现园区低成本<span>智能化</span>运营，</p>
+                    <p>提供全生命周期的解决方案。</p>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="chartOne">
+        <h1>总发电预测和实际功率曲线</h1>
+        <div id="chartOneContent">
+
+        </div>
+    </div>
+    <div class="chartTwo">
+        <h1>总负荷预测和实际功率曲线</h1>
+        <div id="chartTwoContent">
+
+        </div>
+    </div>
+</div>
+<div class="animate">
+     <div class="actionImg"></div>
+    <!--<img src="./images/总.gif" alt="" class="actionImg">-->
+
+    <div class="content">
+        <div class="mainHeader">
+            <div class="mainNav">
+                <div class="nav"></div>
+                <div class="navNow">
+                    <img src="images/all.png" alt=""><p>总/all views</p>
+                </div>
+            </div>
+            <div class="KPI first">
+                <p>总负荷电量</p>
+                <h2><span>MWh</span></h2>
+            </div>
+            <div class="KPI">
+                <p>总上网电量</p>
+                <h2><span>MWh</span></h2>
+            </div>
+            <div class="KPI">
+                <p>总交易电量</p>
+                <h2><span>万元</span></h2>
+            </div>
+            <div class="KPI">
+                <p class="fourth">总CO2排放量</p>
+                <h2><span>T</span></h2>
+            </div>
+            <div class="KPI">
+                <p class="fifth">总标准煤排放量</p>
+                <h2><span>T</span></h2>
+            </div>
+        </div>
+        <div class="indexMainCD">
+            <div class="rel cd">
+                <h2>充电桩</h2>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">设备容量</p>
+                        <p> kW</p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">设备厂家</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">投运日期</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">运行天数</p>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="indexMainCN">
+            <div class="rel cn">
+                <h2>储能</h2>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">设备容量</p>
+                        <p> </p>
+                    </li>
+                    <li class="relPostion">
+                        <p class="indexMainInfoTitle">设备厂家</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">投运日期</p>
+                        <p></p>
+                    </li>
+                    <li class="relPostion">
+                        <p class="indexMainInfoTitle">运行天数</p>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="indexMainFJ">
+            <div class="rel fj">
+                <h2>风机</h2>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">设备容量</p>
+                        <p> MW</p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">设备厂家</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">投运日期</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">运行天数</p>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="indexMainGF">
+            <div class="rel gf">
+                <h2>光伏</h2>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">设备容量</p>
+                        <p> MW</p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">设备厂家</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">投运日期</p>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">运行天数</p>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="sourceRight">
+    <div class="rightHeader">
+        <p class="BeiJingTime"></p>
+        <p class="ExactlyTime"></p>
+    </div>
+    <ul class="rightChartlist">
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>近7日电量交易</p><p>单位：万元</p></div>
+                <div id="rightChartContentOne">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>近7日上网电量</p><p>单位：MWh</p></div>
+                <div id="rightChartContentTwo">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>近7日负荷电量</p><p>单位：MWh</p></div>
+                <div id="rightChartContentThree">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="rightMask"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/chartOption.js"></script>
+<script src="js/index.js"></script>
+<script src="js/base.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/indexData.js"></script>
+<script src="js/countUp.js"></script>
+
+<script>
+
+
+    $(function() {
+        // setTimeout(() => {
+        //     window.location.href = filePath + 'source.html'
+        // }, 12000);
+
+        //左部的动画
+        $('.park ul li').each(function(i, item){
+            $(item).animate({
+                opacity:1
+            },i*2000+500);
+        })
+          setTimeout(function(){
+              $(".park ul li").each(function(i, item){
+                  // $(item).find('div p span').animate({
+                  //     color: '#ccc',
+                  //     fontSize: '16px',
+                  // },i*2000+500);
+                  // $(item).find('b').css('filter','grayscale(100%)');
+                  $(item).find('div p span').fadeIn();
+                  $(item).find('div p span').css('color','#ccc');
+                  $(item).find('div p span').css('font-size','26px');
+                  $(item).find('b').css('filter','grayscale(100%)');
+                  $(item).find('b').fadeIn();
+              })
+          },5000)
+
+
+
+        $('.indexMainCD').animate({
+            opacity:1
+        },2000,function() {
+            $(this).find('div ul li').each(function (i, item) {
+                $(item).animate({
+                    opacity: 1
+                }, i * 1000 + 500, function () {
+                    $('.indexMainCN').animate({
+                        opacity: 1
+                    }, 2000, function () {
+                        $(this).find('div ul li').each(function (i, item) {
+                            $(item).animate({
+                                opacity: 1
+                            }, i * 1000 + 500, function () {
+                                $('.indexMainFJ').animate({
+                                    opacity: 1
+                                }, 2000, function () {
+                                        $(this).find('div ul li').each(function (i, item) {
+                                            $(item).animate({
+                                                opacity: 1
+                                            }, i * 1000 + 1000, function () {
+                                                $('.indexMainGF').animate({
+                                                    opacity: 1
+                                                }, 2000, function () {
+                                                    $(this).find('div ul li').each(function (i, item) {
+                                                        $(item).animate({opacity: 1}, i * 1000 + 1000)
+                                                    })
+                                                })
+                                            })
+                                        })
+
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+
+
+        // 总电荷量
+        // titileName(topTitleReq())
+        // soketFun('total', titileName)
+        // var obj = topTitleReq();
+        // function titileName(data){
+        //         data = (data instanceof Array) && data[0]&&data[0]['position'] == 'top' ? data[0].value :  obj ;
+        //         var arr = [];
+        //             if(data) {
+        //                 var {Total_Load_Energy, Total_OnGrid_Energy, Total_Energy_Earnings, Today_CO2_EmisReduc,Total_Coal_EmisReduc } = data
+        //                 arr = [ Total_Load_Energy,Total_OnGrid_Energy,Total_Energy_Earnings,
+        //                   Today_CO2_EmisReduc,Total_Coal_EmisReduc
+        //                 ];
+        //
+        //             }
+        //             else{
+        //                 arr = [0,0,0,0,0]
+        //             }
+        //             // $('.KPI h2').html('');
+        //             $('.KPI h2').each(function(v,item){
+        //                 $(item).prepend(arr[v]);
+        //                 //数字滚动
+        //                 // animateNUM($(item)[0],arr[v])
+        //
+        //             })
+        //         }
+      //  function animateNUM(dom, num){
+      //      var options = {
+      //          useEasing: true, 	 	// 使用缓和
+      //          useGrouping: true,	// 使用分组(是否显示千位分隔符,一般为 true)
+      //          separator: ',',		// 分隔器(千位分隔符,默认为',')
+      //          decimal: '.',			// 十进制(小数点符号,默认为 '.')
+      //          prefix: '',			// 字首(数字的前缀,根据需要可设为 $,¥,￥ 等)
+      //          suffix: ''			// 后缀(数字的后缀 ,根据需要可设为 元,个,美元 等)
+      //      };
+      //    new CountUp(dom, 0, num, 0, 3, options).start();
+      //
+      //  }
+      //   function changeStyle(num){
+      //           if(num instanceof Number){
+      //               return parseInt(num);
+      //           }
+      //           if(num == 'undefined'){
+      //               return 0;
+      //           }
+      //           return num*1;
+      // }
+
+        // 中间四个
+        function getMiddleData(){
+            HttpRequest({
+                type: 'get',
+                url: 'http://172.172.33.34:8088/v1/total/getBottomData',
+                success: function (response) {
+                    if (response) {
+                        var {CDZ, CN, GF, WF} = response;
+                        renderDom($('.indexMainCD ul li'), CDZ);
+                        renderDom($('.indexMainCN ul li'), CN)
+                        renderDom($('.indexMainFJ ul li'), GF)
+                        renderDom($('.indexMainGF ul li'), WF)
+                        function renderDom(dom,arr){
+                            dom.each(function(i,v){
+                                $(v).children()[1].prepend(arr[i])
+
+                            })
+                        }
+
+                    }
+                }
+            })
+        }
+
+         function topTitleReq(){
+            var obj = {}
+            HttpRequest({
+                    type: 'get',
+                    url: 'http://172.172.33.34:8088/v1/total/getTotalData',
+                    success:function(response){
+                        if(response){
+                            obj = response;
+                        }
+                      }
+             })
+            return obj;
+        }
+         getMiddleData();
+
+    })
+</script>
+</html>

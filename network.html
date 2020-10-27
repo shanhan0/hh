@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汕头微电网大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/source.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .networkTrade .rel div, .surfeIntert .rel div{
+            opacity: 0;
+        }
+
+        .actionImg{
+            display: inline-block;
+            position:absolute;
+            width: 3712px;
+            height: 1536px;
+            right: -36.9%;
+            top: -2%;
+            transform: translate(-121px,1px);
+            background: url('./images/network_scriptes.png') -10px -10px no-repeat;
+            animation: testanimations 1s steps(1,start)  0s infinite;
+        }
+        @keyframes testanimations{
+            from{
+
+                opacity: 0.4;
+                background-position: -10px -1566px;
+            }
+            6.6%{
+                opacity: 0.8;
+                background-position:-10px -3122px ;
+            }
+            13.2%{
+                opacity: 0.9;
+                background-position:  -10px -4678px;
+            }
+            19.2%{
+                opacity: 0.7;
+                background-position:  -10px -6234px;
+            }
+            26.4%{
+                opacity: 0.7;
+                background-position:  -10px -7790px;
+            }
+            33%{
+                opacity: 0.7;
+                background-position: -10px -9346px;
+            }
+            39.6%{
+                opacity: 0.7;
+                background-position:  -10px -10902px;
+            }
+
+            46.2%{
+                opacity: 0.7;
+                background-position: -10px -12458px;
+            }
+            52.8%{
+                opacity: 0.7;
+                background-position:  -10px -14014px;
+            }
+            59.4%{
+                opacity: 0.7;
+                background-position:   -10px -15570px;
+            }
+            66%{
+                opacity: 0.7;
+                background-position:   -10px -17126px;
+            }
+            72.6%{
+                opacity: 0.7;
+                background-position:  -10px -18682px;
+            }
+            79.2%{
+                opacity: 0.7;
+                background-position:  -10px -20238px;
+            }
+            85.8%{
+                opacity: 0.7;
+                background-position: -10px -21794px;
+            }
+            92.4%{
+
+                opacity: 0.7;
+                background-position:-10px -24906px;
+            }
+
+           92.5%{
+                opacity: 0.7;
+                background-position:-10px -26462px;
+            }
+            92.8% {
+                opacity: 0.9;
+                background-position: -10px -28018px;
+            }
+
+            93% {
+                opacity: 0.9;
+                background-position: -10px -29574px;
+            }
+
+            95% {
+                opacity: 0.9;
+                background-position: -10px -31130px;
+            }
+            to {
+                opacity: 0.9;
+                background-position: -10px -10px;
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+<div class="sourceLeftMask"></div>
+<div class="sourceLeft">
+    <div class="sourceSloganDIv">
+        <div class="sourceSlogan">
+            <p>智慧园区能源系统</p>
+        </div>
+    </div>
+    <ul class="rightChartlist networkLeftBar">
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>近7日园区日电量交易</p><p>单位：万元</p></div>
+                <div id="ChartNetworkOne">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader networkLeftHeader"><p>近7日园区上网电量</p><p>单位：MWh</p></div>
+                <div id="ChartNetworkTwo">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="contentNetwork">
+    <div class="actionImg"></div>
+    <div class="mainHeader">
+        <div class="mainNav">
+            <div class="nav"></div>
+            <div class="navNow">
+                <img src="images/network.png" alt=""><p>网/network</p>
+            </div>
+        </div>
+        <div class="KPI first">
+            <p class="networkConheader">日上网电量</p>
+            <h2><span>MWh</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartOne"></div>
+            <div>
+                <p>风机</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartTwo"></div>
+            <div>
+                <p>光伏</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI secondKpi">
+            <p class="networkConheaderTwo">累计上网电量</p>
+            <h2><span>MWh</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartThree"></div>
+            <div>
+                <p>风机</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartFour"></div>
+            <div>
+                <p>光伏</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="networkTradeMsk"></div>
+    <div class="networkTrade">
+        <div class="rel cd">
+            <h2>园区电量交易</h2>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">今日</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">7月</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">2020年</p>
+                <p><span>MWh</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="surfeIntertMsk"></div>
+    <div class="surfeIntert">
+        <div class="rel cd">
+            <h2>园区上网电量</h2>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">今日</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">7月</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">2020年</p>
+                <p><span>MWh</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="networkRightChart">
+        <div class="chartHeader"><p>电网交互有功功率实时曲线</p><p>单位：KW</p></div>
+        <div id="networkMainChart">
+        </div>
+    </div>
+</div>
+<div class="sourceRight">
+    <div class="rightHeader">
+        <p class="BeiJingTime"></p>
+        <p class="ExactlyTime"></p>
+    </div>
+    <div class="sourceRightContent bottomLine">
+        <div class="sourceRightContentHeader">
+            <h2 class="networkH2Short">日电网交易占比</h2>
+        </div>
+        <div class="NetworkRightContentList">
+            <div class="NetworkRightPie" id="NetworkRightPieOne">
+
+            </div>
+            <div class="NetworkRightCon">
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">风机 | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">光伏 | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sourceRightContent">
+        <div class="sourceRightContentHeader">
+            <h2 class="networkH2long">累计电网交易占比</h2>
+        </div>
+        <div class="NetworkRightContentList">
+            <div class="NetworkRightPie" id="NetworkRightPieTwo">
+
+            </div>
+            <div class="NetworkRightCon">
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">风机 | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">光伏 | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rightMask"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/chartOption.js"></script>
+<script src="js/network.js"></script>
+<script src="js/base.js"></script>
+<!--<script src="js/soket.js"></script>-->
+<script>
+    $(function() {
+        $('.networkTrade .rel div').each(function(i,item){
+            $(item).animate({
+                opacity:'1',
+            }, i*3000+1000, function(){
+                $('.surfeIntert .rel div').each(function(i,item){
+                    $(item).animate({
+                        opacity:'1',
+                    },i*3000+1000);
+                })
+            });
+        })
+
+        bottomContentData(); //底部==》园区电量和上网
+        rightContentData(rightPieReq()); //右边
+
+        function bottomContentData(){
+            HttpRequest({
+                type: 'get',
+                url: 'http://172.172.33.34:8088/v1/network/getBottomData',
+                success: function ( response ) {
+                    if (response) {
+                        var {Today_Energy_Earnings, Five_Month_Energy_Earnings, This_Year_Energy_Earnings,
+                            Today_OnGrid_Energy, Five_Month_OnGrid_Energy, This_Year_OnGrid_Energy
+                         } = response;
+                        var arr = [Today_Energy_Earnings, Five_Month_Energy_Earnings, This_Year_Energy_Earnings,
+                            Today_OnGrid_Energy, Five_Month_OnGrid_Energy, This_Year_OnGrid_Energy];
+                        $('.networkTrade .networkTradeCon, .surfeIntert .networkTradeCon').each(function(i,item){
+                            $(item).children()[1].prepend(arr[i]);
+                        })
+                    }
+
+                }
+            })
+        }
+        function rightPieReq(){
+            var obj = {}
+            HttpRequest({
+                type: 'get',
+                url: 'http://172.172.33.34:8088/v1/network/getGridPercentage',
+                success:function(response){
+                    if(response){
+                        obj = response;
+                    }
+                }
+            })
+            return obj;
+        }
+        function rightContentData(response){
+            response = (response instanceof Array) && response[0]&&response[0]['position'] == 'right' ? response[0].value : response;
+            var {Today_Income_Wf, Today_Income_Gf, Total_Income_Wf, Total_Income_Gf,
+                Day_Wf_Percentage, Day_Grid_Gf_Percentage, Total_Wf_Percentage, Total_Grid_Gf_Percentage
+            } = response;
+            var arr = [Today_Income_Wf, Today_Income_Gf, Total_Income_Wf, Total_Income_Gf];
+            var percentageArr = [ Day_Wf_Percentage, Day_Grid_Gf_Percentage, Total_Wf_Percentage, Total_Grid_Gf_Percentage];
+
+            $('.NetworkRightContentList .NetworkRightCon ul li').each(function(i,item){
+               $( $(item).children()[0]).append(parseInt(percentageArr[i]) +  '%');
+               $( $(item).children()[1]).prepend(parseInt(arr[i]));
+
+            })
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汕头微电网大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/source.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .predictData .rel .networkTradeCon{
+            opacity: 0;
+        }
+        .predictElePrice .rel ul li{
+            opacity: 0;
+        }
+        .surfeIntert .rel .networkTradeCon{
+            opacity: 0;
+        }
+        .progress_box ,.progress_box ul li{
+            opacity: 0;
+        }
+        .title,.pro_box{
+            opacity: 0;
+        }
+        /*.sourceTurbineOne{*/
+            /*opacity: 0;*/
+        /*}*/
+        /*.predictTurbineOne .rel ul li{*/
+            /*opacity: 0;*/
+        /*}*/
+        .predictTurbineOne,
+        .predictTurbineTwo,
+        .predictTurbineThree,
+        .predictTurbineFour,
+        .predictTurbineFive,
+        .predictTurbineSix,
+        .predictTurbineSeven,
+        .sourceTurbineEight,
+        .sourceTurbineNine
+        {
+            opacity:0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="sourceLeftMask"></div>
+<div class="sourceLeft">
+    <div class="sourceSloganDIv">
+        <div class="sourceSlogan">
+            <p>智慧园区能源系统</p>
+        </div>
+    </div>
+    <ul class="rightChart predictlist">
+        <!--<li>-->
+            <!--<div class="rightChart predictChart">-->
+                <!--<div class="chartHeader predictHeaderline"><p class="predictOneHeader">风速与辐照度预测曲线</p> <p></p> <p class="predictShort"> <img src="images/changeBtn.png" alt=""></p></div>-->
+                <!--<div class="predictHeader"><p class="predictWindspeed">风速</p><p class="predictRadiance">辐射度</p><p class="unitPredictNew oneDan">单位：m/s</p>  </div>-->
+                <!--<div id="leftChartPredictOne">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <li>
+            <div class="rightChart predictChart">
+                <div class="chartHeader"><p class="predictTwoHeader">风功率预测曲线</p><p class="unitPredictNew ">单位：kW</p><p class="predictShort wind"> <span data-flag="wind">短期</span><img src="images/changeBtn.png" alt=""></p></div>
+                <div id="leftChartPredictTwo">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart predictChart">
+                <div class="chartHeader"><p class="predictThreeHeader">光功率预测曲线</p><p class="unitPredictNew">单位：kW</p><p class="predictShort light"><span  data-flag="light">短期</span> <img src="images/changeBtn.png" alt=""></p></div>
+                <div id="leftChartPredictThree">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart predictChart">
+                <div class="chartHeader"><p class="predictFourHeader">负荷预测曲线</p><p class="unitPredictNew">单位：kW</p><p class="predictShort load"><span  data-flag="load">短期</span> <img src="images/changeBtn.png" alt=""></p></div>
+                <div id="leftChartPredictFour">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart predictChart">
+                <div class="chartHeader"><p class="predictFiveHeader">充放电出力曲线</p><p class="unitPredictNew">单位：kW</p><p class="predictShort charge"><span data-flag="charge">短期</span> <img src="images/changeBtn.png" alt=""></p></div>
+                <div id="leftChartPredictFive">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="contentPredict">
+    <div class="pro_box">
+        <div class="title">
+                <h2>园区当前状态</h2>
+        </div>
+        <div class="progress_box">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+            </ul>
+            <p><span></span> 各项设施运转正常 <span></span></p>
+        </div>
+    </div>
+    <div class="mainHeader">
+        <div class="mainNav">
+            <div class="nav"></div>
+            <div class="navNow">
+                <img src="images/dix.png" style=" margin-top: 5px;" alt=""><p>预测与调度</p>
+            </div>
+        </div>
+        <div class="KPI first predictKpiOne predictKpiPadding">
+            <p>目标总收益</p>
+            <h2> <span>元</span></h2>
+        </div>
+        <div class="KPI secondKpi predictKpiTwo predictKpiPadding">
+            <p>日总成本</p>
+            <h2> <span>元</span></h2>
+        </div>
+        <div class="KPI kpiProgress predictKpiPadding">
+            <div id="KPIProgressChartOne"></div>
+            <div>
+                <p>日风机</p>
+                <h2> <span>元</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress predictKpiPadding">
+            <div id="KPIProgressChartTwo"></div>
+            <div>
+                <p>日光伏</p>
+                <h2> <span>元</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress predictKpiPadding">
+            <div id="KPIProgressChartThree"></div>
+            <div>
+                <p>日储能</p>
+                <h2> <span>元</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress predictKpiPadding">
+            <div id="KPIProgressChartFour"></div>
+            <div>
+                <p>日电费</p>
+                <h2> <span>元</span></h2>
+            </div>
+        </div>
+    </div>
+
+        <div class="networkTrade predictData perfectData ">
+            <div class="rel cd">
+                <h2>预测数据</h2>
+                <div class="networkTradeCon">
+                    <p class="indexMainInfoTitle">风功率预测</p>
+                    <p><span>kW</span></p>
+                </div>
+                <div class="networkTradeCon">
+                    <p class="indexMainInfoTitle">光功率预测</p>
+                    <p><span>kW</span></p>
+                </div>
+                <div class="networkTradeCon">
+                    <p class="indexMainInfoTitle">负荷预测</p>
+                    <p><span>kW</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="surfeIntert mergeDetail">
+            <div class="rel cd">
+                <h2>并网详情</h2>
+                <div class="networkTradeCon">
+                    <p class="indexMainInfoTitle">并网电源</p>
+                    <p> <span>主电源</span></p>
+                </div>
+                <div class="networkTradeCon">
+                    <p class="indexMainInfoTitle">并网容量</p>
+                    <p><span>kW</span></p>
+                </div>
+            </div>
+        </div>
+    <div class ='box'>
+        <div class="sourceTurbineOne predictTurbineOne">
+            <div class="rel cd">
+                <div class="turbineHeader">
+                    <h2>风机1</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p><span></span><span>kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p><span></span><span>kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineTwo predictTurbineTwo">
+            <div class="rel fjTwo">
+                <div class="turbineHeader">
+                    <h2>风机2</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p><span></span><span>kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p><span></span><span>kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineThree predictTurbineThree">
+            <div class="rel GfOne">
+                <div class="turbineHeader">
+                    <h2>光伏1</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p><span></span><span> kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p><span></span><span> kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineFour predictTurbineFour">
+            <div class="rel GfTwo">
+                <div class="turbineHeader">
+                    <h2>光伏2</h2>
+                    <p class="statusTurbine errorTitle">故障</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p><span></span><span> kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p><span></span><span> kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineFive predictTurbineFive">
+            <div class="rel mainDY">
+                <div class="turbineHeader">
+                    <h2>主电源</h2>
+                    <p class="statusTurbine errorTitle ">故障</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">并网电压</p>
+                        <p> <span></span><span> pu</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">并网频率</p>
+                        <p><span></span><span> HZ</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineSix predictTurbineSix">
+            <div class="rel twoDY">
+                <div class="turbineHeader">
+                    <h2>备用电源</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p> <span></span><span> kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p> <span></span><span> kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineSeven predictTurbineSeven">
+            <div class="rel CDZ">
+                <div class="turbineHeader">
+                    <h2>充电桩</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">充电功率</p>
+                        <p> <span></span><span> kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">功率限制</p>
+                        <p> <span></span> <span> %</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineEight predictTurbineEight">
+            <div class="rel CN">
+                <div class="turbineHeader">
+                    <h2>储能</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">有功给定</p>
+                        <p> <span></span> <span> kW</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">无功给定</p>
+                        <p> <span></span> <span> kVar</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sourceTurbineNine predictTurbineNine">
+            <div class="rel KT">
+                <div class="turbineHeader">
+                    <h2>空调</h2>
+                    <p class="statusTurbine">运行</p>
+                </div>
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">平均温度</p>
+                        <p> <span></span><span> ℃</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">平均是度</p>
+                        <p> <span></span><span> %</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="predictElePrice">
+        <div class="rel cd">
+            <div class="predictElePriceHeader">
+                <p>上网电价</p>
+                <p>补贴电价</p>
+                <p>工业电价</p>
+            </div>
+            <ul>
+                <li>
+                    <p>风机</p>
+                    <div class="predictElePriceCon">
+                        <p></p>
+                        <p></p>
+                        <p><em></em><span>元/kWh</span></p>
+                    </div>
+                </li>
+                <li>
+                    <p>光伏</p>
+                    <div class="predictElePriceCon">
+                        <p></p>
+                        <p></p>
+                        <p><em></em><span>元/kWh</span></p>
+                    </div>
+                </li>
+                <li>
+                    <p>负荷</p>
+                    <div class="predictElePriceCon">
+                        <p></p>
+                        <p></p>
+                        <p><em></em><span>元/kWh</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--    <div class="loadCharge">-->
+<!--        <div class="rel cd">-->
+<!--            <div class="turbineHeader">-->
+<!--                <h2>充电桩</h2>-->
+<!--                <p class="statusTurbine">正常</p>-->
+<!--            </div>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">功率</p>-->
+<!--                    <p>1000 KW</p>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">負荷占比</p>-->
+<!--                    <p>3000kW</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">控制方式</p>-->
+<!--                    <p>远程控制</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="loadAssemble">-->
+<!--        <div class="rel cd">-->
+<!--            <div class="turbineHeader">-->
+<!--                <h2>装配基地</h2>-->
+<!--            </div>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">溫度</p>-->
+<!--                    <p>6m/s</p>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">负荷占比</p>-->
+<!--                    <p>3000kW</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">湿度</p>-->
+<!--                    <p>3000kW</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="loadBuilding">-->
+<!--        <div class="rel cd">-->
+<!--            <div class="turbineHeader">-->
+<!--                <h2>综合楼</h2>-->
+<!--            </div>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">功率</p>-->
+<!--                    <p>6m/s</p>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <p class="indexMainInfoTitle">负荷占比</p>-->
+<!--                    <p>3000kW</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<div class="sourceRight">
+    <div class="rightHeader">
+        <p class="BeiJingTime"></p>
+        <p class="ExactlyTime"></p>
+    </div>
+    <div class="sourceRightContent predictRightContent">
+        <div class="sourceRightContentHeader">
+            <h2 class="predictH2Short">预测功率与实际功率曲线</h2>
+        </div>
+        <div class="predictRightHeader">
+            <p class="predictWindspeed">风机</p>
+            <p class="predictRadiance">光伏</p>
+            <p class="predictRadiance">负荷</p>
+            <p class="predictShort"> <span class="short" data-flag = 'short'>短期</span> <img src="images/changeBtn.png" alt=""></p></div>
+        <div class="NetworkRightContentList predictConList">
+            <div class="predictDan"><p class="unitPredictNew">单位：kW</p></div>
+            <div class="predictRightPie" id="predictRightPieOne">
+            </div>
+        </div>
+    </div>
+    <div class="sourceRightContent predictRightContent">
+        <div class="sourceRightContentHeader">
+            <h2 class="predictH2long">日前调度指令曲线</h2>
+        </div>
+        <div class="NetworkRightContentList predictConList">
+            <div class="predictDanTwo"><p class="unitPredictNew">单位：kW</p></div>
+            <div class="predictRightPie" id="predictRightPieTwo">
+            </div>
+        </div>
+    </div>
+    <div class="sourceRightContent predictRightContent">
+        <div class="sourceRightContentHeader ">
+            <h2 class="predictH2long sourcePos predictPoin">日内调度指令曲线</h2>
+            <!--<p class="unitPredict">单位：kW</p>-->
+        </div>
+        <div class="NetworkRightContentList predictConList">
+            <div class="predictDanThree"><p class="unitPredictNew">单位：kW</p></div>
+            <div class="predictRightPie" id="predictRightPieThree">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rightMask"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/chartOption.js"></script>
+<script src="js/predict.js"></script>
+<script src="js/base.js"></script>
+<script src="js/utils.js"></script>
+<!--<script src="js/soket.js"></script>-->
+<script>
+    $(function() {
+        // setTimeout(() => {
+        //     window.location.href = 'file:///C:/project/wind-micronet-large-server-web-v1.0/source.html';
+        // }, 12000);
+        var timer;
+        $('.predictData .rel .networkTradeCon').each(function(i, item){
+            $(item).animate({
+                opacity:1
+            },i*2000+1000,function(){
+                $('.predictElePrice .rel ul li').each(function(index, v){
+                    $(v).animate({
+                        opacity:1
+                    },index*2000+1000,function(){
+                        $('.surfeIntert .rel .networkTradeCon').each(function(ind, item){
+                            $(item).animate({
+                                opacity:1
+                            },ind*2000+1000,function(){
+                                $(".pro_box").animate({opacity:1},1000,function(){
+                                    $('.title').animate({opacity:1},3000);
+                                })
+                                $('.progress_box ').animate({opacity:1},2000,function(){
+                                    $('.progress_box ul li').each(function(i, item){
+                                        $(item).animate({
+                                            opacity: 1
+                                        },i*200+10,function(){
+
+                                        })
+
+                                    })
+                                    textAni()
+                                })
+
+
+
+
+                                //调用两次，闪烁两次
+
+                            })
+                        })
+                    })
+                })
+            })
+        })
+        animates()
+        function animates(){
+            clearInterval(timer)
+             
+            $('.predictTurbineOne').animate({opacity:1},3000,function(){
+                $(this).animate({'opacity':0},3000,function(){
+                    $('.predictTurbineTwo').animate({opacity:1},2000,function(){
+                        $(this).animate({'opacity':0},3000, function(){
+                            $('.predictTurbineFive').animate({opacity:1},2000,function(){
+                                $(this).animate({'opacity':0},3000,function(){
+                                    $('.predictTurbineSix').animate({opacity:1},2000,function(){
+                                        $(this).animate({'opacity':0},3000,function(){
+                                            $('.predictTurbineSeven').animate({opacity:1},2000,function(){
+                                                $(this).animate({'opacity':0},3000,function(){
+                                                    $('.sourceTurbineEight').animate({opacity:1},2000,function(){
+                                                        $(this).animate({'opacity':0},3000,function(){
+                                                            $('.predictTurbineNine').animate({opacity:1},2000,function(){
+                                                                $(this).animate({'opacity':0},3000,function(){
+                                                                    $('.predictTurbineThree').animate({opacity:1},2000,function(){
+                                                                        $(this).animate({'opacity':0},3000,function(){
+                                                                            $('.predictTurbineFour').animate({opacity:1},2000,function(){
+                                                                                $(this).animate({'opacity':0},3000,function(){
+                                                                                      $('.predictTurbineOne').animate({opacity:0},3000)
+                                                                                        timer = setInterval(animates, 1000)
+
+
+                                                                                })
+                                                                            })
+                                                                        })
+
+                                                                    })
+                                                                })
+
+                                                            })
+                                                        })
+
+                                                    })
+                                                })
+
+                                            })
+                                        })
+
+                                    })
+                                })
+
+                            })
+                        })
+
+                    })
+                })
+
+            })
+
+
+        }
+
+
+
+        function textAni(){
+            setTimeout(function(){
+                $('.progress_box p').fadeOut();
+                $('.progress_box p').fadeIn();
+            },3000)
+        }
+
+         //中间数据
+         var {Wind_Power_Prediction, Light_Power_Prediction, load_Prediction, Wf_Hard_Work, Wf_Reactive, Grid_Connected_Supply, Grid_Connected_Capacity, price}
+           = miaddleFun()
+         var arrOne = [Wind_Power_Prediction, Light_Power_Prediction, load_Prediction];
+         //上网电价数据]
+        var WfArr = [price[0].Wf_Go_Online, price[0].Wf_Subsidy, price[0].Wf_Industry ];
+        var GfArr = [price[1].Gf_Go_Online, price[1].Gf_Subsidy, price[1].Gf_Industry];
+        var LoadArr = [price[2].Load_Go_Online, price[2].Load_Subsidy, price[2].Load_Industry];
+         //  预测数据
+         $('.predictData  .networkTradeCon').each(function(v,item){
+             ($(item).children())[1].prepend(arrOne[v]);
+         })
+         $('.predictElePrice  ul li').each(function(i,item){
+             var dom = $($(item).children()[1])
+             $(dom.children()[0]).append(WfArr[i]) // 第一个p
+             $(dom.children()[1]).append(GfArr[i])
+             $($(dom.children()[2]).find('em')).append(LoadArr[i]) //第三个p
+         })
+
+
+        //风机1
+        var arrTwo = [Wf_Hard_Work, Wf_Reactive];
+        $(".sourceTurbineOne ul li").each(function(v,item){
+            ($(item).children())[1].prepend(arrTwo[v]);
+        })
+
+        //并网
+        var arrThree = [Grid_Connected_Supply, Grid_Connected_Capacity];
+        $(".surfeIntert .networkTradeCon").each(function(v,item){
+            if(v != 0){
+                ($(item).children())[1].prepend(arrThree[v]);
+            }
+
+        })
+
+        function middleAndBottomFun(data){
+
+            data.Nine_Data.forEach(function(v, index){
+                $('.box .rel ul').each(function(i,item){
+                    $(this).find('li:first-child  p:nth-child(2) span:nth-child(1)').html('');
+                    $(this).find('li:nth-child(2)  p:nth-child(2) span:nth-child(1)').html('');
+                    var values = Object.values(v)
+                     $($(this).find('li:first-child p:nth-child(2) span:nth-child(1)')).prepend(values[0])
+                     $($(this).find('li:nth-child(2) p:nth-child(2) span:nth-child(1)')).prepend(values[1])
+                })
+            })
+
+        }
+
+        function miaddleFun(){
+            var arr = [];
+            HttpRequest({
+                type: 'get',
+                url: 'http://172.172.32.187:9500/v1/forecastSchedul/getCircleData',
+                success: function(response){
+                    if(response) {
+                        arr = response ;
+                    }
+                }
+
+            })
+            return arr;
+        }
+        function middleAndBottomData(){
+            var arr = [];
+            HttpRequest({
+                type: 'get',
+                url: 'http://172.172.32.187:9500/v1/forecastSchedul/getBottomData',
+                success: function(response){
+                    if(response) {
+                        arr = response ;
+                    }
+                }
+
+            })
+            return arr;
+        }
+
+        middleAndBottomFun(middleAndBottomData())
+
+
+
+    })
+</script>
+</html>

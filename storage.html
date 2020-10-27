@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汕头微电网大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/source.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .actionImg {
+            display: inline-block;
+            position: absolute;
+            width: 3712px;
+            height: 1536px;
+            right: -29.6%;
+            top: 110px;
+            transform: translate(70px);
+            background: url('./images/storage_in.png') -10px -10px no-repeat;
+             /*background: url('./images/storage_out.png') -10px -10px no-repeat;*/
+            animation: testanimations 2s steps(1, end) 0s infinite;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            -webkit-perspective: 1000px;
+            -moz-perspective: 1000px;
+            -ms-perspective: 1000px;
+            perspective: 1000px;
+        }
+
+        @keyframes testanimations {
+            from {
+                opacity: 0.2;
+                background-position: -10px -1566px;
+            }
+
+            5% {
+                opacity: 0.4;
+                background-position: -10px -3122px;
+            }
+
+            10% {
+                opacity: 0.6;
+                background-position: -10px -4678px;
+            }
+
+            15% {
+                opacity: 0.8;
+                background-position: -10px -6234px;
+
+            }
+
+            20% {
+                opacity: 0.2;
+                background-position: -10px -7790px;
+            }
+
+            25% {
+                opacity: 0.4;
+                background-position: -10px -9346px;
+            }
+
+            30% {
+                opacity: 0.6;
+                background-position: -10px -10902px;
+            }
+
+            35% {
+                opacity: 0.8;
+                background-position: -10px -12458px;
+            }
+
+            40% {
+                opacity: 0.9;
+                background-position: -10px -14014px;
+            }
+
+            45% {
+                opacity: 0.2;
+                background-position: -10px -15570px;
+            }
+
+            50% {
+                opacity: 0.4;
+                background-position: -10px -17126px;
+            }
+
+            55% {
+                opacity: 0.6;
+                background-position: -10px -18682px;
+            }
+
+            60% {
+                opacity: 0.8;
+                background-position: -10px -20238px;
+            }
+
+            65% {
+                opacity: 0.9;
+                background-position: -10px -21794px;
+            }
+
+            70% {
+                opacity: 0.9;
+                background-position: -10px -23350px;
+            }
+
+            75% {
+                opacity: 0.9;
+                background-position: -10px -24906px;
+            }
+
+            78% {
+                opacity: 0.9;
+                background-position: -10px -26462px;
+            }
+
+            87% {
+                opacity: 0.9;
+                background-position: -10px -28018px;
+            }
+
+            92% {
+                opacity: 0.9;
+                background-position: -10px -29574px;
+            }
+
+            95% {
+                opacity: 0.9;
+                background-position: -10px -31130px;
+            }
+
+            to {
+                opacity: 0.8;
+                background-position:  -10px -10px;
+
+            }
+        }
+        .storageTwo,
+        .storageTwo .rel .turbineHeader,
+        .storageTwo .rel  ul li
+        {
+            opacity: 0;
+        }
+        .storageOne,
+        .storageOne .rel .turbineHeader,
+        .storageOne .rel  ul li{
+            opacity: 0;
+        }
+        .networkTrade, .surfeIntert{
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="sourceLeftMask"></div>
+<div class="sourceLeft">
+    <div class="sourceSloganDIv">
+        <div class="sourceSlogan">
+            <p>智慧园区能源系统</p>
+        </div>
+    </div>
+    <ul class="rightChartlist networkLeftBar">
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader storageLeftHeaderOne"><p>近7日充电量</p><p>单位：MWh</p></div>
+                <div id="ChartNetworkOne">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader storageLeftHeader"><p>近7日放电量</p><p>单位：MWh</p></div>
+                <div id="ChartNetworkTwo">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="contentStorage">
+    <div class="actionImg"></div>
+    <div class="mainHeader">
+        <div class="mainNav">
+            <div class="nav"></div>
+            <div class="navNow">
+                <img src="images/storage.png" alt=""><p>储/storage</p>
+            </div>
+        </div>
+        <div class="KPI first">
+            <p class="networkConheader">累计总充电量</p>
+            <h2> <span>MWh</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartOne"></div>
+            <div>
+                <p>储能A</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartTwo"></div>
+            <div>
+                <p>储能B</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI secondKpi">
+            <p class="networkConheaderTwo">累计总放电量</p>
+            <h2><span>MWh</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartThree"></div>
+            <div>
+                <p>储能A</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartFour"></div>
+            <div>
+                <p>储能B</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="storageChargeMsk"></div>
+    <div class="networkTrade storageCharge">
+        <div class="rel cd">
+            <h2>当日充电量</h2>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">储能A</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">储能B</p>
+                <p><span>MWh</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="storageOutputMsk"></div>
+    <div class="surfeIntert storageOutput">
+        <div class="rel cd">
+            <h2>当日放电量</h2>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">储能A</p>
+                <p><span>MWh</span></p>
+            </div>
+            <div class="networkTradeCon">
+                <p class="indexMainInfoTitle">储能B</p>
+                <p><span>MWh</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="sourceTurbineOne storageOne">
+        <div class="rel cd">
+            <div class="turbineHeader">
+                <h2>储能集装箱A</h2>
+                <p class="statusTurbine">正常</p>
+            </div>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">SOC实时值</p>
+                    <p>%</p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">实时功率</p>
+                    <p> kW</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceGF storageTwo">
+        <div class="rel cd" style="margin-left: 190px;">
+            <div class="turbineHeader">
+                <h2>储能集装箱B</h2>
+                <p class="statusTurbine error">故障</p>
+            </div>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">SOC实时值</p>
+                    <p>%</p>
+                </li>
+                <li class="relStorageMiddleTitle">
+                    <p class="indexMainInfoTitle">实时功率</p>
+                    <p>kW</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="storageRightChart">
+        <div class="chartHeader"><p>SOC值实时曲线</p></div>
+        <div id="storageRightChart">
+        </div>
+    </div>
+    <div class="storageLeftChart">
+        <div class="chartHeader"><p>充放电功率实时曲线</p></div>
+        <div id="storageLeftChart">
+        </div>
+    </div>
+</div>
+<div class="sourceRight">
+    <div class="rightHeader">
+        <p class="BeiJingTime"></p>
+        <p class="ExactlyTime"></p>
+    </div>
+    <div class="sourceRightContent bottomLine">
+        <div class="sourceRightContentHeader">
+            <h2 class="storageH2Short">当日收益</h2>
+        </div>
+        <div class="NetworkRightContentList">
+            <div class="NetworkRightPie" id="NetworkRightPieOne">
+
+            </div>
+            <div class="NetworkRightCon">
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">储能A | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">储能B | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sourceRightContent totalContent">
+        <div class="sourceRightContentHeader">
+            <h2 class="storageH2Short">累计收益</h2>
+        </div>
+        <div class="NetworkRightContentList">
+            <div class="NetworkRightPie" id="NetworkRightPieTwo">
+
+            </div>
+            <div class="NetworkRightCon">
+                <ul>
+                    <li>
+                        <p class="indexMainInfoTitle">储能A | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                    <li>
+                        <p class="indexMainInfoTitle">储能B | </p>
+                        <p><span>万元</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rightMask"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/chartOption.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/base.js"></script>
+<!--<script src="js/soket.js"></script>-->
+<script>
+    window['id'] = []
+    $(function() {
+        // setTimeout(() => {
+        //     window.location.href = filePath + 'predict&dispatch.html'
+        // }, 12000)  , .surfeIntert
+        $('.networkTrade').animate({
+            opacity:1
+        },2000,function(){
+            var styles = document.styleSheets[0];
+            console.log(styles)
+            var keyFrames = ' @keyframes testanimations { from {opacity: 0.2;background-position: -10px -1566px;} 5% {opacity: 0.4;background-position: -10px -3122px;} 10% {opacity: 0.6;background-position: -10px -4678px;}\n' +
+                '            15% {opacity: 0.8;background-position: -10px -6234px;} 20% {opacity: 0.2;background-position: -10px -7790px;} 25% {opacity: 0.4;background-position: -10px -9346px;} 30% {opacity: 0.6;background-position: -10px -10902px;}\n' +
+                '            35% {opacity: 0.8;background-position: -10px -12458px;} 40% {opacity: 0.9;background-position: -10px -14014px;}\n' +
+                '            45% {opacity: 0.2;background-position: -10px -15570px;} 50% {opacity: 0.4;background-position: -10px -17126px;}\n' +
+                '            55% {opacity: 0.6;background-position: -10px -18682px;} 60% {opacity: 0.8;background-position: -10px -20238px;}\n' +
+                '            65% {opacity: 0.9;background-position: -10px -21794px;} 70% {opacity: 0.9;background-position: -10px -23350px;}\n' +
+                '            75% {opacity: 0.9;background-position: -10px -24906px;} 80% {opacity: 0.9;background-position: -10px -26462px;}\n' +
+                '            87% {opacity: 0.9;background-position: -10px -28018px;} 92% {opacity: 0.9;background-position: -10px -29574px;}\n' +
+                '            95% {opacity: 0.9;background-position: -10px -31130px;} to {opacity: 0.8;background-position:  -10px -10px;}\n' +
+                '        }';
+            styles.insertRule(keyFrames)
+            $('.actionImg').css('background',"url('./images/storage_out.png') -10px -10px no-repeat") //动态更改样式
+            $('.surfeIntert').animate({
+                  opacity:1
+              },2000)
+        })
+
+        animates();
+       function animates(){
+           setTimeout (function(){
+               $('.storageTwo').animate({
+                   opacity:1
+               },1000+2000,function(){
+                   $('.storageTwo .rel .turbineHeader').animate({
+                       opacity:1
+                   },2000)
+                   $('.storageTwo .rel  ul li').each(function(index, v){
+                       $(v).animate({
+                           opacity:1
+                       },index*2000+1000)
+                   })
+               })
+           },1000)
+           setTimeout (function(){
+               $('.storageOne').animate({
+                   opacity:1
+               },1000+2000,function(){
+                   $('.storageOne .rel .turbineHeader').animate({
+                       opacity:1
+                   },2000)
+                   $('.storageOne .rel  ul li').each(function(index, v){
+                       $(v).animate({
+                           opacity:1
+                       },index*2000+1000)
+                   })
+               })
+           },5000)
+       }
+
+        function topTitleReq(){
+            var obj = {}
+            HttpRequest({
+                type: 'get',
+                url:'http://172.172.33.34:8088/v1/store/getTopData',
+                success:function(response){
+                    if(response){
+                        obj = response;
+                    }
+                }
+            })
+            return obj;
+        }
+
+
+
+        // 当日充电量
+        var { Today_Charge_A, Today_Charge_B,
+              Today_Discharge_A, Today_Discharge_B,
+              SOC_A, SOC_power_A,
+              SOC_B, SOC_power_B
+        } = getData();
+        let middleArr = [Today_Charge_A, Today_Charge_B,];
+        $('.storageCharge .networkTradeCon').each(function(v,item){
+            ($(item).children())[1].prepend(parseInt(middleArr[v]))
+        })
+
+        //当日放电量
+        var middleArrTwo = [Today_Discharge_A, Today_Discharge_B];
+        $('.storageOutput .networkTradeCon').each(function(v,item){
+            ($(item).children())[1].prepend(parseInt(middleArrTwo[v]))
+        })
+
+        //储能集装箱A
+        var middleArrThree = [SOC_A, SOC_power_A];
+        $('.sourceTurbineOne  ul li').each(function(v,item){
+           $($(item).children())[1].prepend(parseInt(middleArrThree[v]))
+        })
+
+        // 储能集装箱B
+        var middleArrFour = [SOC_B, SOC_power_B];
+        $('.sourceGF  ul li').each(function(v,item){
+           $($(item).children())[1].prepend(parseInt(middleArrFour[v]))
+        })
+
+
+        //右侧的pie的文字
+        var { Today_Income_A, Today_Income_B, Total_Income_A, Total_Income_B,  Today_A_Percentage, Today_B_Percentage, Total_Income_A_Percentage, Total_Income_B_Percentage}=  pieData();
+        var todayPie = [Today_Income_A, Today_Income_B,  Total_Income_A, Total_Income_B];  //当日收益,累计收益
+        var proportionToDayData = [ Today_A_Percentage, Today_B_Percentage, Total_Income_A_Percentage, Total_Income_B_Percentage]; //当日收益，累计收益比例
+
+        $('.NetworkRightCon ul li').each(function(i,v){
+            ($(v).children())[0].append(proportionToDayData[i] + '%');
+            ($(v).children())[1].prepend(todayPie[i] );
+
+        })
+
+
+
+        function getData(){
+            var arr = [];
+            HttpRequest({
+                type:'get',
+                url:'http://172.172.33.34:8088/v1/store/getChargeAndDischarge',
+                success:function(response){
+                    if(response){
+                        arr = response;
+                    }
+                }
+            })
+            return arr
+        }
+
+        function pieData(){
+            var arr=[];
+            HttpRequest({
+                type:'get',
+                url:'http://172.172.33.34:8088/v1/store/getTotalEarnings',
+                success:function(response){
+                    if(response){
+                        arr = response
+                    }
+                }
+            })
+            return arr
+        }
+
+
+
+
+    })
+</script>
+</html>

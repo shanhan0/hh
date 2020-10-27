@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>汕头微电网大屏</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/source.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .thisMonthGenerte .rel ul li,
+        .thisYearGenerte  .rel ul li
+        {
+            opacity: 0;
+        }
+        .actionImg {
+            display: inline-block;
+            position: absolute;
+            width: 3712px;
+            height: 1536px;
+            right: -30.6%;
+            top: 90px;
+            transform: translate(20px);
+            /*background: url('./images/source_normal.png') -10px -10px no-repeat;*/
+            background: url('./images/source_error.png') -10px -10px no-repeat;
+            animation: testanimations 1s steps(1, start) 0s infinite;
+        }
+        @keyframes testanimations { from {opacity: 0.2;background-position: -10px -1566px;} 5% {opacity: 0.4;background-position: -10px -3122px;} 10% {opacity: 0.6;background-position: -10px -4678px;}
+            15% {opacity: 0.8;background-position: -10px -6234px;} 20% {opacity: 0.2;background-position: -10px -7790px;} 25% {opacity: 0.4;background-position: -10px -9346px;} 30% {opacity: 0.6;background-position: -10px -10902px;}
+            35% {opacity: 0.8;background-position: -10px -12458px;} 40% {opacity: 0.9;background-position: -10px -14014px;}
+            45% {opacity: 0.2;background-position: -10px -15570px;} 50% {opacity: 0.4;background-position: -10px -17126px;}
+            55% {opacity: 0.6;background-position: -10px -18682px;} 60% {opacity: 0.8;background-position: -10px -20238px;}
+            65% {opacity: 0.9;background-position: -10px -21794px;} 70% {opacity: 0.9;background-position: -10px -23350px;}
+            75% {opacity: 0.9;background-position: -10px -24906px;} 80% {opacity: 0.9;background-position: -10px -26462px;}
+            87% {opacity: 0.9;background-position: -10px -28018px;} 92% {opacity: 0.9;background-position: -10px -29574px;}
+            95% {opacity: 0.9;background-position: -10px -31130px;} to {opacity: 0.8;background-position:  -10px -10px;}
+        }
+
+        .sourceGF,
+        .sourceGF .rel ul li,
+        .sourceTurbineOne,
+        .sourceTurbineOne .rel ul li,
+        .sourceTurbineTwo,
+        .sourceTurbineTwo .rel ul li
+        {
+            opacity: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="sourceLeftMask"></div>
+<div class="sourceLeft">
+    <div class="sourceSloganDIv">
+        <div class="sourceSlogan">
+            <p>智慧园区能源系统</p>
+        </div>
+    </div>
+    <ul class="rightChartlist">
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader sourceChartHeader"><p>近7日风机1日发电量</p><p>单位：MWh</p></div>
+                <div id="rightChartContentOne">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader sourceChartHeader"><p>近7日风机2日发电量</p><p>单位：MWh</p></div>
+                <div id="rightChartContentTwo">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader sourceChartHeaderTwo"><p>近7日光伏日发电量</p><p>单位：MWh</p></div>
+                <div id="rightChartContentThree">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="content ">
+    <div class="actionImg"></div>
+    <div class="mainHeader">
+        <div class="mainNav">
+            <div class="nav"></div>
+            <div class="navNow">
+                <img src="images/origin.png" alt=""><p>源/sources</p>
+            </div>
+        </div>
+        <div class="KPI first">
+            <p>日发电量</p>
+            <h2><span>MWh</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartOne"></div>
+            <div>
+                <p>风机</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartTwo"></div>
+            <div>
+                <p>光伏</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI secondKpi">
+            <p>总发电量</p>
+            <h2>300<span>Kg</span></h2>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartThree"></div>
+            <div>
+                <p>风机</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+        <div class="KPI kpiProgress">
+            <div id="KPIProgressChartFour"></div>
+            <div>
+                <p>光伏</p>
+                <h2><span>MWh</span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="thisMonthGenerteMsk"></div>
+    <div class="thisMonthGenerte">
+        <div class="rel cd">
+            <h2>7月总发电量</h2>
+            <ul>
+                <li class="sourceThisMonthLiFree">
+                    <p class="indexMainInfoTitle">风机1</p>
+                    <p><span>MWh</span></p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">风机2</p>
+                    <p><span>MWh</span></p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">光伏</p>
+                    <p><span>MWh</span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="thisYearGenerteMsk"></div>
+    <div class="thisYearGenerte">
+        <div class="rel cd">
+            <h2>2020总发电量</h2>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">风机1</p>
+                    <p><span>MWh</span></p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">风机2</p>
+                    <p><span>MWh</span></p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">光伏</p>
+                    <p><span>MWh</span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceGF">
+        <div class="rel cd">
+            <div class="turbineHeader">
+                <h2>光伏</h2>
+                <p class="statusTurbine error">故障</p>
+            </div>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">辐照度</p>
+                    <p> W/㎡</p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">当前功率值</p>
+                    <p> kW</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceTurbineOne">
+        <div class="rel cd">
+            <div class="turbineHeader">
+                <h2>风机1</h2>
+                <p class="statusTurbine">正常</p>
+            </div>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">轮毂高度处风速</p>
+                    <p>m/s</p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">当前功率值</p>
+                    <p> kW</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceTurbineTwo">
+        <div class="rel cd">
+            <div class="turbineHeader">
+                <h2>风机2</h2>
+                <p class="statusTurbine">告警</p>
+            </div>
+            <ul>
+                <li>
+                    <p class="indexMainInfoTitle">轮毂高度处风速</p>
+                    <p> m/s</p>
+                </li>
+                <li>
+                    <p class="indexMainInfoTitle">当前功率值</p>
+                    <p> kW</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ul class="sourceBottomChart">
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>风机1实时功率</p><p>单位：KW</p></div>
+                <div id="mainChartContentOne">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader"><p>风机2实时功率</p><p>单位：KW</p></div>
+                <div id="mainChartContentTwo">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="rightChart">
+                <div class="chartHeader chartHeaderGf"><p>光伏实时功率</p><p>单位：KW</p></div>
+                <div id="mainChartContentThree">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="sourceRight">
+    <div class="rightHeader">
+        <p class="BeiJingTime"></p>
+        <p class="ExactlyTime"></p>
+    </div>
+    <div class="sourceRightContent">
+        <div class="sourceRightContentHeader">
+            <h2>风机1各部件数据</h2>
+            <p>
+                齿轮箱 <a></a>
+            </p>
+        </div>
+        <div class="sourceRightContentList">
+            <ul class="clearfix">
+                <li>
+                    <p>1000kW</p>
+                    <p>发电机转速</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>高速轴承温度</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>齿轮箱油温</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>低速轴温度</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>齿轮箱冷却水温</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceRightContent">
+        <div class="sourceRightContentHeader">
+            <h2>风机2各部件数据</h2>
+            <p>
+                变流器 <a></a>
+            </p>
+        </div>
+        <div class="sourceRightContentList">
+            <ul class="clearfix">
+                <li>
+                    <p>1000kW</p>
+                    <p>有功设定值</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>功率因数</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>变流器实际转矩</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>功率因数设定值</p>
+                </li>
+                <li>
+                    <p>1000kW</p>
+                    <p>变流器冷却水温</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sourceRightContent">
+        <div class="sourceRightContentHeader">
+            <h2 class="sourceRightContentHeaderBg">光伏各部件数据</h2>
+            <p class="bigGenerator">
+                逆变器<a></a>
+            </p>
+        </div>
+        <div class="sourceRightContentList">
+            <ul class="clearfix">
+                <li>
+                    <p class="nomalTitle">正常</p>
+                    <p>直流开关</p>
+                </li>
+                <li>
+                    <p class="nomalTitle">正常</p>
+                    <p>内/外供电</p>
+                </li>
+                <li>
+                    <p class="errorTitle">异常</p>
+                    <p>交流断路器</p>
+                </li>
+                <li class="nomalTitle">
+                    <p>正常</p>
+                    <p>防雷器节点</p>
+                </li>
+                <li>
+                    <p class="errorTitle">异常</p>
+                    <p>交流主接触器</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="rightMask"></div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/echart.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/chartOption.js"></script>
+<script src="js/source.js"></script>
+<script src="js/base.js"></script>
+<!--<script src="js/soket.js"></script>-->
+<script>
+    $(function() {
+
+        //7月，2020发电 动画
+        $('.thisMonthGenerte .rel ul li').each(function(i,item){
+            $(item).animate({
+                opacity:'1',
+            }, i*3000+1000, function(){
+                $('.thisYearGenerte .rel ul li').each(function(i,item){
+                    $(item).animate({
+                        opacity:'1',
+                    },i*3000+1000);
+                })
+            });
+        })
+
+      //故障，正常，警告动画
+      $('.sourceTurbineTwo').animate({
+          opacity:1
+      },1000,function(){
+          $(this).find('.rel ul li').each(function(ind, v){
+              $(v).animate({
+                  opacity:1
+              },ind*2000+500)
+          })
+          $('.sourceGF').animate({
+              opacity:1
+          },4000,function(){
+              $(this).find('.rel ul li').each(function(ind, v){
+                  $(v).animate({
+                      opacity:1
+                  },ind*2000+500,function(){
+                      $('.sourceTurbineOne').animate({
+                          opacity:1
+                      },function(){
+                          $(this).find('.rel ul li').each(function(i, v) {
+                              $(v).animate({
+                                  opacity:1
+                              },ind*2000+500)
+                          })
+                          //正常动画波纹
+                          var styles = document.styleSheets[0];
+                          var keyFrames = ' @keyframes testanimations { from {opacity: 0.2;background-position: -10px -1566px;} 5% {opacity: 0.4;background-position: -10px -3122px;} 10% {opacity: 0.6;background-position: -10px -4678px;}\n' +
+                              '            15% {opacity: 0.8;background-position: -10px -6234px;} 20% {opacity: 0.2;background-position: -10px -7790px;} 25% {opacity: 0.4;background-position: -10px -9346px;} 30% {opacity: 0.6;background-position: -10px -10902px;}\n' +
+                              '            35% {opacity: 0.8;background-position: -10px -12458px;} 40% {opacity: 0.9;background-position: -10px -14014px;}\n' +
+                              '            45% {opacity: 0.2;background-position: -10px -15570px;} 50% {opacity: 0.4;background-position: -10px -17126px;}\n' +
+                              '            55% {opacity: 0.6;background-position: -10px -18682px;} 60% {opacity: 0.8;background-position: -10px -20238px;}\n' +
+                              '            65% {opacity: 0.9;background-position: -10px -21794px;} 70% {opacity: 0.9;background-position: -10px -23350px;}\n' +
+                              '            75% {opacity: 0.9;background-position: -10px -24906px;} 80% {opacity: 0.9;background-position: -10px -26462px;}\n' +
+                              '            87% {opacity: 0.9;background-position: -10px -28018px;} 92% {opacity: 0.9;background-position: -10px -29574px;}\n' +
+                              '            95% {opacity: 0.9;background-position: -10px -31130px;} to {opacity: 0.8;background-position:  -10px -10px;}\n' +
+                              '        }';
+                          styles.insertRule(keyFrames)
+                          $('.actionImg').css('background',"url('./images/source_normal.png') -10px -10px no-repeat") //动态更改样式
+                      })
+                  })
+              })
+          })
+      })
+
+
+
+        // renderTitle(topTitleReq())
+        // soketFun('source', renderTitle)
+
+        // 总电荷量
+        // function topTitleReq(){
+        //     var obj = {}
+        //     HttpRequest({
+        //         type: 'get',
+        //         url:'http://172.172.33.34:8088/v1/source/getTotalData',
+        //         success:function(response){
+        //             if(response){
+        //                 obj = response;
+        //             }
+        //         }
+        //     })
+        //     return obj;
+        // }
+        // function renderTitle(data){
+        //     data = (data instanceof Array) && data[0] && data[0]['position'] == 'top' ? data[0].value : data;
+        //     var {Day_Power_Generation_Wf, Day_Power_Generation_Gf, Total_Power_Generation_Wf, Total_Power_Generation_Gf, Day_Zong, Total_Zong } = data;
+        //     var arr = [Day_Power_Generation_Wf, Day_Power_Generation_Gf, Total_Power_Generation_Wf, Total_Power_Generation_Gf]
+        //     var dateAndToal = [Day_Zong, Total_Zong];
+        //
+        //     $('.kpiProgress h2').html('');
+        //     $('.mainHeader .first h2, .secondKpi h2').html('');
+        //     $('.mainHeader').children().not('.kpiProgress').not('mainNav').each(function(i,item){
+        //         $(item).find('h2').prepend(dateAndToal[i]);
+        //     })
+        //     $('.kpiProgress h2').each(function(v,item){
+        //         $(item).prepend(changePoint(arr[v]));
+        //     })
+        // }
+
+
+        // 7月份的总电量
+        var {Wf_One_Three, Wf_Two_Three, Gf_Three, Gf_Year, Wf_Two_Year,  Gf_Year,  Gf_Radioactivity, Gf_power, Wf_One_Wind, Wf_One_power, Wf_Two_Wind, Wf_Two_power} = getData();
+        var arr = [Wf_One_Three, Wf_Two_Three, Gf_Three];
+        $('.rel ul:first li').each(function(v,item){
+            ($(item).children())[1].prepend(arr[v]);
+        })
+
+        //2020年总发电量
+        var arrTwo = [Gf_Year, Wf_Two_Year,  Gf_Year];
+        $('.thisYearGenerte ul li').each(function(v,item){
+            ($(item).children())[1].prepend(arrTwo[v])
+        })
+
+        //光伏
+        var arrThree = [Gf_Radioactivity, Gf_power];
+        $('.sourceGF ul li').each(function(v,item){
+            ($(item).children())[1].prepend(arrThree[v])
+        })
+
+        //风机1
+        var arrFour = [Wf_One_Wind,Wf_One_power];
+       $('.sourceTurbineOne ul li').each(function(v,item){
+           ($(item).children())[1].prepend(arrFour[v])
+       })
+
+
+        //风机2
+        var arrFive = [Wf_Two_Wind, Wf_Two_power];
+        $('.sourceTurbineTwo ul li').each(function(v,item){
+            ($(item).children())[1].prepend(arrFive[v])
+        })
+
+        // 中间的七月份，2020，以及风机1，风机2，光伏
+        function getData(){
+            var arr = [];
+            HttpRequest({
+                type:'get',
+                url:'http://172.172.33.34:8088/v1/source/getCentralData',
+                success:function(response){
+                    if(response){
+                        arr = response
+                    }
+                }
+            })
+            return arr
+        }
+
+        function changePoint(num){
+                    if(num && (typeof num) =='number' && num!= 0){
+                return (num/1000).toFixed(2)
+            }
+            return num
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,391 @@
+body{
+    width: 3712px;
+    height: 1536px;
+    background: url(../images/backgroud.png) 0 0 no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    z-index: -22;
+}
+.leftMask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 640px;
+    height: 1536px;
+    opacity: 0.15;
+    background: #517EFF;
+    z-index: -3;
+}
+.left{
+    /*display: inline-block;*/
+    width: 640px;
+    height: 1536px;
+    color: #87F1F8;
+    font-size: 22px;
+}
+.slogan{
+    width: 560px;
+    height: 134px;
+    background: url("../images/slogen.png") 0 0 no-repeat;
+    background-size: 560px 134px;
+}
+.slogan p{
+    text-align: right;
+    padding-top: 45px;
+    padding-right: 45px;
+    color: #87F1F8;
+    font-size: 22px;
+}
+.sloganDIv{
+    padding-top: 45px;
+    padding-left: 58px;
+}
+.park{
+    background: url("../images/parkIllu.png") 0 0 no-repeat;
+    width: 558px;
+    height: 390px;
+    background-size: contain;
+    margin-left: 58px;
+    margin-top: 80px;
+    background-size: 558px 390px;
+}
+.park h1{
+    padding-top: 30px;
+    line-height: 76px;
+    text-align: center;
+    color: #7BBFFF;
+    font-size:30px;
+    background: url("../images/headerBg.png") center bottom no-repeat;
+    margin-bottom: 20px;
+}
+.park ul{
+    margin-left: 96px;
+    position: relative;
+}
+.park ul li{
+    margin-bottom: 10px;
+    display: flex;
+}
+.park ul li b{
+    display:inline-block;
+    background-size: 30px 42px;
+    width:30px;
+    height:42px;
+}
+.park ul li:first-child b{
+    background: url("../images/parkIconOne.png") 0 11px no-repeat;
+    position: relative;
+}
+.park ul li:nth-child(2) b{
+    background: url("../images/parkIconOne.png") 0 11px no-repeat;
+    position: relative;
+}
+.park ul li:nth-child(3) b{
+    background: url("../images/parkIconOne.png") 0 11px no-repeat;
+    position: relative;
+}
+.park ul li p{
+    font-size: 22px;
+    color: #82BDF2;
+    width: 320px;
+    margin-left: 54px;
+}
+/*.park ul li:first-child{*/
+    /*background: url("../images/parkIconOne.png") 0 10px no-repeat;*/
+
+    /*position: relative;*/
+/*}*/
+/*.park ul li:nth-child(2){*/
+    /*background: url("../images/parkIconTwo.png") 0 10px no-repeat;*/
+/*}*/
+/*.park ul li:last-child{*/
+    /*background: url("../images/parkIconThree.png") 0 10px no-repeat;*/
+/*}*/
+.chartOne ,.chartTwo{
+    margin-left: 58px;
+    width: 558px;
+    height: 330px;
+    margin-top: 70px;
+}
+.chartOne #chartOneContent,.chartTwo #chartTwoContent{
+    width: 558px;
+    height: 300px;
+    margin-top: 15px;
+}
+.chartOne h1,.chartTwo h1{
+    font-size: 28px;
+    color: #87F1F8;
+    font-weight: bold;
+    padding-left: 30px;
+    background: url("../images/decorater.png") 376px 7px no-repeat;
+}
+.rightHeader {
+    background: url(../images/rightTimeBg.png) 0 0 no-repeat;
+    width: 519px;
+    height: 102px;
+    margin: 45px auto 0 auto;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.content{
+    width: 2434px;
+    height: 1536px;
+    background: url("../images/mainbg.png") center center no-repeat;
+    position: relative;
+}
+
+.indexMainCN,.indexMainCD,.indexMainFJ,.indexMainGF{
+    position: absolute;
+}
+.indexMainCN ul ,.indexMainCD ul ,.indexMainFJ ul ,.indexMainGF ul {
+    display: inline-block;
+    /*align-items: flex-start;*/
+    /*justify-content: flex-start;*/
+}
+.indexMainCN ul li,.indexMainCD ul li,.indexMainFJ ul li,.indexMainGF ul li{
+    width: 46%;
+    float:left;
+}
+.indexMainCN ul li p,.indexMainCD ul li p,.indexMainFJ ul li p,.indexMainGF ul li p{
+    font-size: 18px;
+    color: #6AB7FF;
+    text-align: left;
+    line-height: 18px;
+    padding-left: 6px;
+}
+.indexMainCN ul li p.indexMainInfoTitle:before,.indexMainCD ul li p.indexMainInfoTitle:before,
+.indexMainFJ ul li p.indexMainInfoTitle:before,.indexMainGF ul li p.indexMainInfoTitle:before{
+    content: "• ";
+    color: #6AB7FF;
+    position: relative;
+    right: 5px;
+}
+.indexMainCN ul li p.indexMainInfoTitle,.indexMainCD ul li p.indexMainInfoTitle,.indexMainFJ ul li p.indexMainInfoTitle,.indexMainGF ul li p.indexMainInfoTitle{
+    font-size: 18px;
+    color: #6AB7FF;
+    text-align: left;
+    line-height: 30px;
+    padding-top: 5px;
+    padding-left: 3px;
+    text-indent: 0px;
+}
+.indexMainCN ul li p,.indexMainCD ul li p,.indexMainFJ ul li p,.indexMainGF ul li p{
+    font-size: 22px;
+    color: #87F1F8;
+    text-align: left;
+    line-height: 40px;
+    padding-left: 18px;
+    width: 200px;
+}
+.indexMainCN h2,.indexMainCD h2,.indexMainFJ h2,.indexMainGF h2{
+    font-size: 24px;
+    color: #9DD0FF;
+    text-align: left;
+    text-shadow: 0 0 5px;
+    line-height: 60px;
+    background: url("../images/shortHeaderBg.png") left bottom  no-repeat;
+    background-size: 84%;
+}
+.rel.fj{
+    top: 530px;
+    margin-left: 103px;
+}
+.rel.gf{
+    top: 615px;
+    margin-left: 103px;
+}
+.rel.cd{
+    top: 23px;
+    margin-left: 86px;
+}
+.rel.cn{
+    top: 18px;
+    margin-left: 94px;
+}
+.relPostion{
+    position: relative;
+    right: 40px;
+}
+.indexMainCN{
+    position: absolute;
+    height: 682px;
+    width: 532px;
+    left: 1692px;
+    top: 224px;
+    background: url("../images/indexMainCNBD.png") -20px 0 no-repeat;
+}
+.indexMainCD{
+    position: absolute;
+    height: 774px;
+    width: 532px;
+    left: 1169px;
+    top: 223px;
+    background: url(../images/indexMainCDBD.png) -20px 0 no-repeat;
+}
+.indexMainFJ{
+    position: absolute;
+    height: 770px;
+    width: 532px;
+    left: 268px;
+    top: 684px;
+    background-size: 100% 100%;
+    background: url(../images/indexMainFJBD.png) -20px 0 no-repeat;
+}
+.indexMainGF{
+    position: absolute;
+    height: 875px;
+    width: 532px;
+    left: 816px;
+    top: 595px;
+    background: url(../images/indexMainGFBD.png) -20px 0 no-repeat;
+}
+.mainHeader{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+.mainHeader .mainNav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.mainHeader .mainNav .nav{
+    background: url("../images/menuBg.png") center center no-repeat;
+    width: 74px;
+    height: 74px;
+    /*background-size: 100% 100%;*/
+    position: relative;
+}
+.mainHeader{
+    padding-left: 90px;
+    padding-top: 74px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+.mainHeader .mainNav .navNow{
+    background: url(../images/menuBgR.png) -20px -19px no-repeat;
+    width: 334px;
+    height: 75px;
+    background-size: 112% 156%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+.mainHeader .mainNav .navNow img{
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right:16px;
+}
+.mainHeader .mainNav .navNow p{
+   line-height: 74px;
+    font-size: 28px;
+    color: #87F1F8;
+}
+.KPI.first{
+    margin-left: 530px;
+}
+.KPI p{
+    width: 256px;
+    font-size: 24px;
+    color: #8BC7FF;
+    text-align: left;
+    background: url("../images/decorater.png") 132px center no-repeat;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px rgba(90,255,230,0.50);
+}
+.KPI p.fourth{
+    background: url("../images/decorater.png") 156px center no-repeat;
+}
+.KPI p.fifth{
+    background: url("../images/decorater.png") 177px center no-repeat;
+}
+.KPI h2{
+    font-size: 40px;
+    color: #87F1F8;
+    text-align: left;
+    text-shadow: 0 0 5px #32DBD4;
+}
+.KPI h2 span{
+    font-size: 30px;
+    color: #8BC7FF;
+    text-align: left;
+    text-shadow: none;
+    margin-left: 10px;
+}
+.right{
+    width: 640px;
+    height: 1536px;
+}
+.rightMask{
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0.15;
+    background: #517EFF;
+    width: 640px;
+    height: 1536px;
+    z-index: -2;
+}
+.right .rightHeader{
+    background: url("../images/rightTimeBg.png") 0 0 no-repeat;
+    width: 519px;
+    height: 102px;
+    margin: 45px auto 0 auto;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.BeiJingTime{
+    font-size: 30px;
+    color: #7BBFFF;
+    text-align: left;
+    line-height: 96px;
+    padding-left: 70px;
+}
+.ExactlyTime{
+    font-size: 20px;
+    color: #87F1F8;
+    text-align: left;
+    line-height: 100px;
+    padding-left: 90px;
+}
+.rightChart{
+    margin-top: 120px;
+    margin-left: 83px;
+}
+.rightChart .rightChartContent{
+    width: 478px;
+    height: 300px;
+}
+.rightChart .chartHeader{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+#rightChartContentOne,#rightChartContentTwo,#rightChartContentThree{
+    width: 512px;
+    height: 241px;
+    margin-top: 30px;
+}
+.rightChart .chartHeader p:first-child{
+    width: 384px;
+    font-size: 28px;
+    color: #87F1F8;
+    text-align: left;
+    text-shadow: 0 0 5px rgba(90,255,230,0.50);
+    background: url("../images/decorater.png") 200px  center no-repeat;
+}
+.rightChart .chartHeader p:nth-child(2){
+    font-size: 20px;
+    color: #71B9FF;
+    line-height: 44px;
+}
